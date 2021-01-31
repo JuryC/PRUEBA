@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css">
+    <script src=" https://kit.fontawesome.com/7769f8ac48.js" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <div class="head">
+        <img src="assets/images/logo-aviatur.svg" alt="" width="200px">
+    </div>
+    <div class=" row">
+        <div class="col-3">
+            <div class="title">
+                Filtros
+            </div>
+            <div class="filters">
+                <div class="section c-header">
+                    <i class="fas fa-search"></i>
+                    <p class="text">Nombre del Hotel</p>
+
+                </div>
+                <div class="section sec2">
+                    <i class="fas fa-bed"></i>
+                    <form action="/" method="POST">
+                        <label class="bmd-label-floating"></label>
+                        <input type="text" class=" form-control" name="search">
+                        <input type="submit" value="buscar">
+                    </form>
+                </div>
+                <div class=" section c-header">
+                    <i class="fas fa-star"></i>
+                    <p class="text">Estrellas</p>
+                </div>
+                <div class="section sec4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Todas las Estrellas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <i class="fas fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-9">
+            <%data.forEach((hotel)=>{%>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="<%=`assets/images/hotels/${hotel.image}`%>" alt="" width="150px">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= hotel.name%>
+                                </h5>
+                                <h5 class="card-title">
+                                    <p>
+                                        Precio por noche por habitacion
+                                    </p>
+                                    <%=hotel.price%>
+                                </h5>
+                                <h5 class="card-title">
+                                    <%=hotel.stars%>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+
+        </div>
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ebebeb;
+            font-family: " Roboto", sans-serif;
+        }
+
+        .head {
+            background-color: #0e31afe2;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .row {
+            width: 100%;
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content:
+                space-around;
+            align-items: center;
+            top: unset;
+            margin: unset;
+            height: unset;
+            margin-left: 15px;
+            margin-top: 50px;
+        }
+
+        .cont {
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .c1 {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .c2 {
+            width: 50%;
+            background-color: white;
+        }
+
+        .card {
+            margin-top: 1rem;
+        }
+
+        .title {
+            width: 100%;
+            color: gray;
+            font-size:
+                2em;
+            margin-bottom: 1rem;
+        }
+
+        .filters {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        .section {
+            border-bottom: .3px solid rgba(128, 128, 128, 0.623);
+            background-color: white;
+        }
+
+        .c-header {
+            padding: 3%;
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content:
+                space-around;
+            align-items: center;
+        }
+
+        .icon {
+            width: 20%;
+        }
+
+        .text {
+            width: 60%;
+        }
+
+        .input {
+            border:
+                none;
+            outline: none;
+            background: none;
+            border-bottom: 1rem;
+        }
+    </style>
+</body>
+
+<script src="/src/filter.js" type="text/javascript"></script>
+
+
+</html>
